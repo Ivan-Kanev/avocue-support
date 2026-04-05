@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Support – AvoCue</title>
+
+<style>
+:root{
+  --bg:#050816;
+  --bg2:#0a1023;
+  --panel:rgba(16,22,44,0.78);
+  --panel-strong:rgba(18,25,50,0.92);
+  --card:rgba(255,255,255,0.06);
+  --card-border:rgba(255,255,255,0.08);
+  --text:#f5f7ff;
+  --muted:#aab3cf;
+  --accent:#7c9cff;
+  --accent-2:#4de2c5;
+  --shadow:0 30px 80px rgba(0,0,0,.45);
+  --radius:28px;
+  --max:1200px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text",Inter,Arial,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(76,108,255,.22), transparent 60%),
+    radial-gradient(700px 420px at 90% 8%, rgba(77,226,197,.12), transparent 55%),
+    linear-gradient(180deg, #070b18 0%, #060913 42%, #050816 100%);
+  overflow-x:hidden;
+}
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(18px);
+  background:rgba(5,8,22,.55);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.header-inner{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:18px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+}
+
+.brand-badge{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  background:linear-gradient(135deg, #7c9cff 0%, #4de2c5 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  color:#07111f;
+}
+
+.brand-title{
+  font-size:18px;
+  font-weight:700;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:10px 14px;
+  border-radius:14px;
+  transition:.25s ease;
+  font-weight:600;
+}
+
+nav a:hover,
+nav a.active{
+  color:var(--text);
+  background:rgba(255,255,255,.06);
+}
+
+.container{
+  max-width:940px;
+  margin:0 auto;
+  padding:78px 24px 90px;
+}
+
+.hero{
+  text-align:center;
+  margin-bottom:34px;
+}
+
+.hero h1{
+  margin:0 0 16px;
+  font-size:52px;
+  letter-spacing:-1.2px;
+}
+
+.hero p{
+  margin:0 auto;
+  max-width:700px;
+  color:var(--muted);
+  font-size:19px;
+  line-height:1.75;
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:var(--shadow);
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:24px;
+  margin-top:24px;
+}
+
+.block{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:22px;
+  padding:24px;
+}
+
+.block h2{
+  margin:0 0 12px;
+  font-size:24px;
+}
+
+.block p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.75;
+  font-size:16px;
+}
+
+.contact{
+  margin-top:24px;
+  padding:24px;
+  border-radius:22px;
+  background:linear-gradient(135deg, rgba(124,156,255,.14), rgba(77,226,197,.08));
+  border:1px solid rgba(124,156,255,.18);
+}
+
+.contact-label{
+  display:block;
+  font-size:13px;
+  color:#d9e2ff;
+  margin-bottom:8px;
+  text-transform:uppercase;
+  letter-spacing:.8px;
+}
+
+.contact a{
+  color:#fff;
+  text-decoration:none;
+  font-size:24px;
+  font-weight:700;
+  word-break:break-word;
+}
+
+.contact p{
+  margin:10px 0 0;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+footer{
+  padding:24px 24px 56px;
+  text-align:center;
+  color:var(--muted);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(34px);
+  transition:900ms ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+@media (max-width: 760px){
+  .header-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero h1{
+    font-size:40px;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact a{
+    font-size:20px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">
+      <div class="brand-badge">A</div>
+      <div class="brand-title">AvoCue</div>
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="support.html">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero reveal">
+    <h1>Support</h1>
+    <p>
+      Need help, want to report an issue, or have an idea for improving AvoCue?
+      This page keeps support simple, direct, and consistent with the rest of the site.
+    </p>
+  </section>
+
+  <section class="card reveal">
+    <div class="grid">
+      <div class="block">
+        <h2>What you can contact us about</h2>
+        <p>
+          Questions, feedback, app behavior, feature requests, and anything else
+          related to the AvoCue experience.
+        </p>
+      </div>
+
+      <div class="block">
+        <h2>Response style</h2>
+        <p>
+          Clean, direct communication with a premium feel — matching the product
+          design and keeping the support experience personal and clear.
+        </p>
+      </div>
+    </div>
+
+    <div class="contact">
+      <span class="contact-label">Contact email</span>
+      <a href="mailto:ikanev@icloud.com">ikanev@icloud.com</a>
+      <p>
+        Send your message anytime and include as much context as possible so the
+        response can be faster and more useful.
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 AvoCue
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    }
+  });
+}, { threshold: 0.14 });
+
+reveals.forEach((el) => observer.observe(el));
+</script>
+
+</body>
+</html>
